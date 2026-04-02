@@ -108,9 +108,9 @@ h1, h2, h3, h4, h5, h6 {
 /* Two Sigma-style Science text - massive, bold, textured letters */
 .landing-science-word {
   font-family: 'IBM Plex Mono', 'Courier New', monospace;
-  font-size: clamp(80px, 15vw, 200px);
+  font-size: clamp(100px, 20vw, 280px);
   font-weight: 600;
-  line-height: 1;
+  line-height: 0.9;
   letter-spacing: -0.02em;
   margin: 0;
   padding: 0;

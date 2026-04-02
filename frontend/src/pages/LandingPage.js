@@ -16,7 +16,6 @@ export default function LandingPage() {
   useEffect(() => {
     const t1 = setTimeout(() => setShowText(true), 300);
     const t2 = setTimeout(() => {
-      // Scramble effect for "Science"
       let iteration = 0;
       const interval = setInterval(() => {
         setScienceText(
@@ -37,31 +36,59 @@ export default function LandingPage() {
     return () => { clearTimeout(t1); clearTimeout(t2); clearTimeout(t3); clearTimeout(t4); };
   }, []);
 
+  const handleNav = (href) => {
+    navigate('/home');
+    setTimeout(() => {
+      const el = document.querySelector(href);
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    }, 300);
+  };
+
   return (
     <div className="landing-hero" data-testid="landing-page">
-      {/* Logo */}
+      {/* Top nav bar with logo + 4 buttons */}
       <div
-        className="mb-8 transition-all duration-700"
-        style={{ opacity: showText ? 1 : 0, transform: showText ? 'translateY(0)' : 'translateY(20px)' }}
+        className="absolute top-0 left-0 right-0 z-10 flex items-center justify-between px-6 md:px-12 py-4 transition-all duration-700"
+        style={{ opacity: showText ? 1 : 0 }}
+        data-testid="landing-nav"
       >
-        <img
-          src={LOGO_URL}
-          alt="Wealthwolffs"
-          className="w-24 h-24 sm:w-32 sm:h-32 object-contain"
-          data-testid="landing-logo"
-        />
+        <div className="flex items-center gap-3">
+          <img src={LOGO_URL} alt="Wealthwolffs" className="h-10 w-10 object-contain" />
+          <span className="text-sm font-semibold text-[#0A192F] tracking-wide">WEALTHWOLFFS</span>
+        </div>
+        <nav className="flex items-center gap-4 sm:gap-6" data-testid="landing-nav-buttons">
+          <button onClick={() => handleNav('#who-are-we')} className="text-xs sm:text-sm font-medium text-[#0A192F] hover:text-[#003B5C] transition-colors tracking-wide" data-testid="landing-nav-about">About Us</button>
+          <button onClick={() => handleNav('#solutions')} className="text-xs sm:text-sm font-medium text-[#0A192F] hover:text-[#003B5C] transition-colors tracking-wide" data-testid="landing-nav-solutions">Solutions</button>
+          <button onClick={() => handleNav('#solutions')} className="text-xs sm:text-sm font-medium text-[#0A192F] hover:text-[#003B5C] transition-colors tracking-wide" data-testid="landing-nav-products">Products</button>
+          <button onClick={() => handleNav('#contact')} className="text-xs sm:text-sm font-medium text-[#0A192F] hover:text-[#003B5C] transition-colors tracking-wide" data-testid="landing-nav-contact">Contact Us</button>
+        </nav>
       </div>
 
-      {/* Main headline */}
-      <div className="text-center px-6 max-w-5xl">
-        <p
-          className="text-base sm:text-lg md:text-xl text-[#475569] font-light tracking-wide mb-4 transition-all duration-700"
-          style={{ opacity: showText ? 1 : 0, transform: showText ? 'translateY(0)' : 'translateY(15px)', fontFamily: 'IBM Plex Sans, sans-serif' }}
+      {/* Center content */}
+      <div className="text-center px-6 max-w-6xl">
+        {/* Logo large */}
+        <div
+          className="mb-6 transition-all duration-700"
+          style={{ opacity: showText ? 1 : 0, transform: showText ? 'translateY(0)' : 'translateY(20px)' }}
         >
-          Wealthwolffs understands the Financial
+          <img
+            src={LOGO_URL}
+            alt="Wealthwolffs"
+            className="w-20 h-20 sm:w-28 sm:h-28 object-contain mx-auto"
+            data-testid="landing-logo"
+          />
+        </div>
+
+        {/* "Wealthwolffs understands the Financial" */}
+        <p
+          className="text-lg sm:text-2xl md:text-3xl text-[#0A192F] font-medium tracking-wide mb-2 transition-all duration-700"
+          style={{ opacity: showText ? 1 : 0, transform: showText ? 'translateY(0)' : 'translateY(15px)', fontFamily: 'Cabinet Grotesk, IBM Plex Sans, sans-serif' }}
+        >
+          Wealthwolffs understands the{' '}
+          <span className="text-[#003B5C]" style={{ fontFamily: 'IBM Plex Mono, monospace', fontWeight: 500 }}>Financial</span>
         </p>
 
-        {/* Science - Two Sigma style large text */}
+        {/* Science - Two Sigma style massive text */}
         <h1
           className="landing-science-word transition-all duration-700"
           style={{ opacity: showText ? 1 : 0, transform: showText ? 'scale(1)' : 'scale(0.9)' }}
@@ -82,7 +109,7 @@ export default function LandingPage() {
 
         {/* Subtext */}
         <p
-          className="mt-3 text-base sm:text-lg text-[#475569] font-light tracking-wide transition-all duration-700"
+          className="mt-2 text-base sm:text-lg md:text-xl text-[#475569] font-light tracking-wide transition-all duration-700"
           style={{ opacity: showSubtext ? 1 : 0, transform: showSubtext ? 'translateY(0)' : 'translateY(15px)', fontFamily: 'IBM Plex Sans, sans-serif' }}
           data-testid="landing-subtext"
         >
@@ -91,7 +118,7 @@ export default function LandingPage() {
 
         {/* Enter button */}
         <div
-          className="mt-10 transition-all duration-700"
+          className="mt-8 transition-all duration-700"
           style={{ opacity: showButton ? 1 : 0, transform: showButton ? 'translateY(0)' : 'translateY(15px)' }}
         >
           <button
@@ -102,13 +129,6 @@ export default function LandingPage() {
             Enter the Site
           </button>
         </div>
-      </div>
-
-      {/* Bottom decoration line */}
-      <div className="absolute bottom-8 flex items-center gap-3">
-        <div className="w-12 h-px bg-[#C4A47C]"></div>
-        <span className="text-xs tracking-[0.2em] text-[#C4A47C] font-medium uppercase">Since 2020</span>
-        <div className="w-12 h-px bg-[#C4A47C]"></div>
       </div>
     </div>
   );
