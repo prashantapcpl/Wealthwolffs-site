@@ -2,6 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import { ArrowUpRight } from 'lucide-react';
 
 const LOGO_URL = '/logo-white.png';
+const LOGO_DARK_URL = '/logo-dark.png';
 
 const socialLinks = [
   { name: 'Twitter', icon: 'fa-x-twitter', url: '#' },
@@ -26,7 +27,7 @@ export default function Footer() {
           {/* Brand */}
           <div className="md:col-span-1">
             <div className="flex items-center gap-3 mb-6">
-              <img src={LOGO_URL} alt="Wealthwolffs" className="h-12 w-12 object-contain" />
+              <img src={LOGO_DARK_URL} alt="Wealthwolffs" className="h-12 w-12 object-contain" />
               <div>
                 <p className="text-white font-semibold text-sm tracking-wide">WEALTHWOLFFS</p>
                 <p className="text-white/40 text-xs">Global Hedged Solutions</p>
