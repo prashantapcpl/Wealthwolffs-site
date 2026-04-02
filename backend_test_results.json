@@ -1,0 +1,62 @@
+{
+  "timestamp": "2026-04-02T17:28:01.274144",
+  "total_tests": 9,
+  "passed_tests": 9,
+  "success_rate": 100.0,
+  "test_results": [
+    {
+      "test": "GET Testimonials",
+      "status": "PASSED",
+      "details": "Status: 200, Expected: 200, Items: 3",
+      "timestamp": "2026-04-02T17:28:00.173226"
+    },
+    {
+      "test": "GET News/Media",
+      "status": "PASSED",
+      "details": "Status: 200, Expected: 200, Items: 3",
+      "timestamp": "2026-04-02T17:28:00.296723"
+    },
+    {
+      "test": "POST Contact Enquiry",
+      "status": "PASSED",
+      "details": "Status: 200, Expected: 200, Keys: ['enquiry_id', 'name', 'email', 'phone', 'message', 'status', 'created_at']",
+      "timestamp": "2026-04-02T17:28:00.479602"
+    },
+    {
+      "test": "GET Auth Me (No Token)",
+      "status": "PASSED",
+      "details": "Status: 401, Expected: 401, Keys: ['detail']",
+      "timestamp": "2026-04-02T17:28:00.621699"
+    },
+    {
+      "test": "POST Logout (No Token)",
+      "status": "PASSED",
+      "details": "Status: 200, Expected: 200, Keys: ['message']",
+      "timestamp": "2026-04-02T17:28:00.754618"
+    },
+    {
+      "test": "GET Admin Stats (No Auth)",
+      "status": "PASSED",
+      "details": "Status: 401, Expected: 401, Keys: ['detail']",
+      "timestamp": "2026-04-02T17:28:00.857927"
+    },
+    {
+      "test": "GET Admin Users (No Auth)",
+      "status": "PASSED",
+      "details": "Status: 401, Expected: 401, Keys: ['detail']",
+      "timestamp": "2026-04-02T17:28:01.002691"
+    },
+    {
+      "test": "GET Admin Enquiries (No Auth)",
+      "status": "PASSED",
+      "details": "Status: 401, Expected: 401, Keys: ['detail']",
+      "timestamp": "2026-04-02T17:28:01.160148"
+    },
+    {
+      "test": "GET Hidden Page (Non-existent)",
+      "status": "PASSED",
+      "details": "Status: 404, Expected: 404, Keys: ['detail']",
+      "timestamp": "2026-04-02T17:28:01.273112"
+    }
+  ]
+}
