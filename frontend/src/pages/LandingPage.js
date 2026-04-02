@@ -36,49 +36,21 @@ export default function LandingPage() {
     return () => { clearTimeout(t1); clearTimeout(t2); clearTimeout(t3); clearTimeout(t4); };
   }, []);
 
-  const handleNav = (href) => {
-    navigate('/home');
-    setTimeout(() => {
-      const el = document.querySelector(href);
-      if (el) el.scrollIntoView({ behavior: 'smooth' });
-    }, 300);
-  };
-
   return (
     <div className="landing-hero" data-testid="landing-page">
-      {/* Top nav bar with logo + 4 buttons */}
-      <div
-        className="absolute top-0 left-0 right-0 z-10 flex items-center justify-between px-6 md:px-12 py-4 transition-all duration-700"
+      {/* Top left - Logo + WEALTHWOLFFS (2x bigger) */}
+      <button
+        onClick={() => navigate('/')}
+        className="absolute top-0 left-0 z-10 flex items-center gap-4 px-6 md:px-12 py-5 transition-all duration-700"
         style={{ opacity: showText ? 1 : 0 }}
-        data-testid="landing-nav"
+        data-testid="landing-logo-btn"
       >
-        <div className="flex items-center gap-3">
-          <img src={LOGO_URL} alt="Wealthwolffs" className="h-10 w-10 object-contain" />
-          <span className="text-sm font-semibold text-[#0A192F] tracking-wide">WEALTHWOLFFS</span>
-        </div>
-        <nav className="flex items-center gap-4 sm:gap-6" data-testid="landing-nav-buttons">
-          <button onClick={() => handleNav('#who-are-we')} className="text-xs sm:text-sm font-medium text-[#0A192F] hover:text-[#003B5C] transition-colors tracking-wide" data-testid="landing-nav-about">About Us</button>
-          <button onClick={() => handleNav('#solutions')} className="text-xs sm:text-sm font-medium text-[#0A192F] hover:text-[#003B5C] transition-colors tracking-wide" data-testid="landing-nav-solutions">Solutions</button>
-          <button onClick={() => handleNav('#solutions')} className="text-xs sm:text-sm font-medium text-[#0A192F] hover:text-[#003B5C] transition-colors tracking-wide" data-testid="landing-nav-products">Products</button>
-          <button onClick={() => handleNav('#contact')} className="text-xs sm:text-sm font-medium text-[#0A192F] hover:text-[#003B5C] transition-colors tracking-wide" data-testid="landing-nav-contact">Contact Us</button>
-        </nav>
-      </div>
+        <img src={LOGO_URL} alt="Wealthwolffs" className="h-16 w-16 sm:h-20 sm:w-20 object-contain" />
+        <span className="text-lg sm:text-2xl font-semibold text-[#0A192F] tracking-wide">WEALTHWOLFFS</span>
+      </button>
 
-      {/* Center content */}
+      {/* Center content - no logo, just text */}
       <div className="text-center px-6 max-w-6xl">
-        {/* Logo large */}
-        <div
-          className="mb-6 transition-all duration-700"
-          style={{ opacity: showText ? 1 : 0, transform: showText ? 'translateY(0)' : 'translateY(20px)' }}
-        >
-          <img
-            src={LOGO_URL}
-            alt="Wealthwolffs"
-            className="w-20 h-20 sm:w-28 sm:h-28 object-contain mx-auto"
-            data-testid="landing-logo"
-          />
-        </div>
-
         {/* "Wealthwolffs understands the Financial" */}
         <p
           className="text-lg sm:text-2xl md:text-3xl text-[#0A192F] font-medium tracking-wide mb-2 transition-all duration-700"
