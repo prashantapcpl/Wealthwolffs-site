@@ -1,0 +1,114 @@
+{
+  "project_name": "Wealthwolffs Global Hedged Solutions",
+  "theme": "light",
+  "archetype": "1 (Organic & Earthy / Trust) with Swiss Minimalist Layouts",
+  "design_philosophy": "A premium, authoritative financial services platform. Blends the high-end, old-money trust of organic light browns and navy blues with the high-tech precision of a quantitative hedge fund (inspired by Two Sigma). Uses generous whitespace, sharp typography, and deliberate monospace accents to communicate 'Financial Science'.",
+  "colors": {
+    "background": "#FFFFFF",
+    "surface": "#F9F8F6",
+    "surface_secondary": "#F0EBE1",
+    "primary": "#003B5C",
+    "primary_hover": "#002A42",
+    "secondary": "#C4A47C",
+    "secondary_hover": "#B09068",
+    "accent": "#005082",
+    "text_primary": "#0A192F",
+    "text_secondary": "#475569",
+    "border": "#E2E8F0",
+    "code_bg": "#F1F5F9"
+  },
+  "typography": {
+    "font_family": {
+      "headings": "Cabinet Grotesk, sans-serif",
+      "body": "IBM Plex Sans, sans-serif",
+      "mono": "IBM Plex Mono, monospace",
+      "serif_accent": "Playfair Display, serif"
+    },
+    "rules": {
+      "h1": "text-4xl sm:text-5xl lg:text-6xl tracking-tight font-medium text-[#0A192F]",
+      "h2": "text-2xl sm:text-3xl lg:text-4xl tracking-tight font-medium text-[#0A192F]",
+      "h3": "text-xl sm:text-2xl font-medium text-[#0A192F]",
+      "body": "text-base leading-relaxed text-[#475569]",
+      "overline": "uppercase text-xs tracking-[0.2em] font-semibold text-[#C4A47C]",
+      "science_accent": "font-mono text-[#003B5C] bg-[#F1F5F9] px-2 py-1 rounded border border-[#E2E8F0]"
+    }
+  },
+  "layout_and_spacing": {
+    "spacing_scale": "Tailwind standard (p-4, p-8, p-12, p-16, p-24, p-32)",
+    "section_padding": "py-24 md:py-32",
+    "container_max_width": "max-w-7xl mx-auto px-6 md:px-12",
+    "grid_strategy": "The 'Control Room' grid for dashboards, 'Bento' grid for features/solutions",
+    "border_radius": "rounded-none or rounded-sm (max 4px) to maintain a sharp, authoritative institutional feel"
+  },
+  "surface_strategies": {
+    "header": "Crystal Glassmorphism: bg-white/80 backdrop-blur-xl border-b border-[#E2E8F0]/50 shadow-sm",
+    "cards": "Flat Solid: bg-white border border-[#E2E8F0] shadow-sm hover:shadow-md transition-shadow duration-300",
+    "footer": "Dark Theme inversion: bg-[#0A192F] text-white py-24",
+    "buttons": "Sharp corners, flat colors. Primary: bg-[#003B5C] text-white hover:bg-[#002A42]. Secondary: bg-transparent border border-[#003B5C] text-[#003B5C] hover:bg-[#F1F5F9]."
+  },
+  "motion_and_interactions": {
+    "hover_states": "Cards lift slightly (-translate-y-1). Text links underline on hover. Buttons maintain sharp transitions (duration-200 ease-out).",
+    "page_scroll": "Smooth scrolling (Lenis recommended if possible, otherwise CSS scroll-behavior: smooth).",
+    "hero_animation": "Typewriter or scramble effect on the word 'Science' in the hero header. Fade up entrance for surrounding text."
+  },
+  "pages_and_sections": {
+    "landing_page": {
+      "hero": "Headline: 'Wealthwolffs understands the Financial [Science]'. The word 'Science' must use the `science_accent` mono typography (like Two Sigma). Background: Clean white with subtle #F9F8F6 geometric or architectural accents. Minimalist and high-end.",
+      "about_us": "Includes a Shadcn NavigationMenu dropdown in the header (Who are we, Why Wealthwolffs, Founder, Careers, Media/News). On the page, a clean split-layout section.",
+      "solutions": "Scrollable service cards displaying 9 financial services. Minimalist stats layout (inspired by faralloncapital/greenhedgecapital). Use CSS snap-x or a carousel.",
+      "products": "Sections for WolffsInstaAlerts and WolffsInstaTrade. Use 'Bento' grid layouts to showcase features.",
+      "wolffs_academy": "A 'Coming Soon' section. Style it with a subtle glassmorphism overlay or a lock icon, maintaining the premium feel.",
+      "testimonials": "Clean, authoritative quote cards. Serif accent font (Playfair Display) for the quote marks to add an 'old money' touch.",
+      "contact_us": "Shadcn UI forms. Sharp, flat input fields. Minimalist.",
+      "auth": "Login/Signup page with Google OAuth button. Split screen with a premium architectural image on one side."
+    },
+    "admin_panel": {
+      "layout": "Sidebar navigation + main content area. High-density 'Control Room' grid.",
+      "styling": "Cardless or subtle borders. Very dense and functional. Tables for user management and enquiries (using Shadcn Table)."
+    }
+  },
+  "components_usage": {
+    "tables": "Shadcn Table, border-collapse, dense padding for Admin.",
+    "dropdowns": "Shadcn NavigationMenu for Header, Shadcn DropdownMenu for Actions.",
+    "carousel": "Framer Motion or native CSS scroll snap for Solutions.",
+    "forms": "Shadcn Form, Input, Textarea, Label. Flat borders."
+  },
+  "accessibility": {
+    "contrast": "Ensure all text meets APCA/WCAG AA standards. Navy on White/Off-White.",
+    "focus_states": "focus:ring-2 focus:ring-[#C4A47C] focus:outline-none",
+    "testing_attributes": "All interactive elements must have data-testid attributes (e.g., data-testid='hero-cta-button', data-testid='login-google-button')."
+  },
+  "media": {
+    "image_urls": [
+      {
+        "url": "https://customer-assets.emergentagent.com/job_unified-kyc-platform/artifacts/pfh0lco5_wolff%20logo.png",
+        "category": "logo",
+        "description": "Brand Logo (Gold/blue shield with eagles on dark navy background)"
+      },
+      {
+        "url": "https://images.pexels.com/photos/11478169/pexels-photo-11478169.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "category": "hero_background",
+        "description": "London financial district modern architecture (Use for auth split screen or subtle hero visual)"
+      },
+      {
+        "url": "https://images.pexels.com/photos/6915077/pexels-photo-6915077.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "category": "about_us",
+        "description": "Low angle view of iconic skyscrapers under blue sky"
+      },
+      {
+        "url": "https://images.pexels.com/photos/7433840/pexels-photo-7433840.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "category": "team_meeting",
+        "description": "Business professionals discussing documents in a modern meeting room (Use for About Us / Careers)"
+      }
+    ]
+  },
+  "instructions_to_main_agent": [
+    "Use standard HTML/Tailwind for marketing sections to ensure creative layouts, but rely heavily on Shadcn UI for interactive elements (forms, dropdowns, tables).",
+    "CRITICAL: The word 'Science' in the hero MUST be styled as code (monospace, distinct color/background) to emulate the Two Sigma text effect requested by the user.",
+    "Implement a sticky glassmorphism header.",
+    "For the Solutions section, build a horizontally scrollable container or carousel for the 9 financial services, using a minimalist card design with subtle hover lifts.",
+    "Build the Admin Dashboard with strict, dense 'Control Room' grid rules (no heavy shadows, use sharp 1px borders).",
+    "Install and use 'Cabinet Grotesk' for headings, 'IBM Plex Sans' for body, and 'IBM Plex Mono' for code snippets.",
+    "Ensure the color palette perfectly matches the user's request: White background, Aesthetic Blue (#003B5C), and Aesthetic Light Brown (#C4A47C)."
+  ]
+}
