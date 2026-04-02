@@ -216,8 +216,8 @@ export default function MainSite() {
       <Header />
 
       {/* Hero Welcome */}
-      <section className="pt-20">
-        <div className="relative py-24 md:py-40 bg-[#F9F8F6]" data-testid="hero-section">
+      <section className="pt-16">
+        <div className="relative py-14 md:py-20 bg-[#F9F8F6]" data-testid="hero-section">
           <div className="max-w-7xl mx-auto px-6 md:px-12 flex flex-col lg:flex-row items-center gap-12">
             <div className="flex-1">
               <p className="overline mb-4">Welcome to Wealthwolffs</p>
@@ -238,7 +238,7 @@ export default function MainSite() {
                 </button>
               </div>
               {/* Stats */}
-              <div className="flex gap-8 mt-12 pt-8 border-t border-[#E2E8F0]">
+              <div className="flex gap-8 mt-8 pt-6 border-t border-[#E2E8F0]">
                 <div>
                   <p className="text-2xl sm:text-3xl font-medium text-[#003B5C]">5+</p>
                   <p className="text-xs text-[#475569] mt-1">Years Experience</p>
@@ -261,7 +261,7 @@ export default function MainSite() {
       </section>
 
       {/* Who Are We */}
-      <Section id="who-are-we" className="py-24 md:py-32">
+      <Section id="who-are-we" className="py-14 md:py-20">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
@@ -284,14 +284,13 @@ export default function MainSite() {
       </Section>
 
       {/* Why Wealthwolffs */}
-      <Section id="why-wealthwolffs" className="py-24 md:py-32 bg-[#F9F8F6]">
+      <Section id="why-wealthwolffs" className="py-14 md:py-20 bg-[#F9F8F6]">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <p className="overline mb-4">Why Choose Us</p>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-medium tracking-tight text-[#0A192F] mb-12">
             Why Wealthwolffs
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {whyWealthwolffs.map((item, i) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">            {whyWealthwolffs.map((item, i) => (
               <div key={i} className="bg-white border border-[#E2E8F0] p-6 card-lift" data-testid={`why-card-${i}`}>
                 <item.icon className="w-8 h-8 text-[#003B5C] mb-4" />
                 <h3 className="text-base font-medium text-[#0A192F] mb-2">{item.title}</h3>
@@ -303,7 +302,7 @@ export default function MainSite() {
       </Section>
 
       {/* Founder */}
-      <Section id="founder" className="py-24 md:py-32">
+      <Section id="founder" className="py-14 md:py-20">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <div className="max-w-3xl mx-auto text-center">
             <p className="overline mb-4">Leadership</p>
@@ -321,7 +320,7 @@ export default function MainSite() {
       </Section>
 
       {/* Careers */}
-      <Section id="careers" className="py-24 md:py-32 bg-[#F9F8F6]">
+      <Section id="careers" className="py-14 md:py-20 bg-[#F9F8F6]">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <div className="max-w-3xl">
             <p className="overline mb-4">Join Our Team</p>
@@ -339,10 +338,10 @@ export default function MainSite() {
       </Section>
 
       {/* Media / News */}
-      <Section id="media" className="py-24 md:py-32">
+      <Section id="media" className="py-14 md:py-20">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <p className="overline mb-4">In The News</p>
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-medium tracking-tight text-[#0A192F] mb-12">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-medium tracking-tight text-[#0A192F] mb-8">
             Media & Insights
           </h2>
           <MediaSection />
@@ -350,10 +349,10 @@ export default function MainSite() {
       </Section>
 
       {/* Testimonials */}
-      <Section id="testimonials" className="py-24 md:py-32 bg-[#F9F8F6]">
+      <Section id="testimonials" className="py-14 md:py-20 bg-[#F9F8F6]">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <p className="overline mb-4">Testimonials</p>
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-medium tracking-tight text-[#0A192F] mb-12">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-medium tracking-tight text-[#0A192F] mb-8">
             What Our Customers Say
           </h2>
           <TestimonialsSection />
@@ -361,14 +360,13 @@ export default function MainSite() {
       </Section>
 
       {/* Solutions */}
-      <Section id="solutions" className="py-24 md:py-32">
+      <Section id="solutions" className="py-14 md:py-20">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <p className="overline mb-4">Our Solutions</p>
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-medium tracking-tight text-[#0A192F] mb-16">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-medium tracking-tight text-[#0A192F] mb-10">
             Solutions & Services
           </h2>
-          <SolutionsCarousel />
-        </div>
+          <SolutionsCarousel />        </div>
       </Section>
 
       {/* Partners Strip */}
@@ -386,7 +384,7 @@ export default function MainSite() {
       </section>
 
       {/* Contact */}
-      <Section id="contact" className="py-24 md:py-32 bg-[#F9F8F6]">
+      <Section id="contact" className="py-14 md:py-20 bg-[#F9F8F6]">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
             <div>
