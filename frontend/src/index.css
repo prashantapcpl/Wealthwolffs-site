@@ -105,12 +105,45 @@ h1, h2, h3, h4, h5, h6 {
 ::-webkit-scrollbar-thumb { background: var(--ww-secondary); border-radius: 3px; }
 ::-webkit-scrollbar-thumb:hover { background: var(--ww-secondary-hover); }
 
-/* Science text scramble animation */
-@keyframes textScramble {
-  0% { opacity: 0; transform: translateY(8px); }
-  100% { opacity: 1; transform: translateY(0); }
+/* Two Sigma-style Science text - massive, bold, textured letters */
+.landing-science-word {
+  font-family: 'IBM Plex Mono', 'Courier New', monospace;
+  font-size: clamp(80px, 15vw, 200px);
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  margin: 0;
+  padding: 0;
 }
 
+.science-letters {
+  display: inline-flex;
+  gap: 0;
+}
+
+.science-letter {
+  display: inline-block;
+  background: linear-gradient(135deg, #003B5C 0%, #005082 25%, #C4A47C 50%, #005082 75%, #003B5C 100%);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: scienceGradient 4s ease infinite, scienceReveal 0.6s ease-out forwards;
+  opacity: 0;
+}
+
+@keyframes scienceGradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes scienceReveal {
+  0% { opacity: 0; transform: translateY(20px) rotateX(30deg); }
+  100% { opacity: 1; transform: translateY(0) rotateX(0deg); }
+}
+
+/* Code-style Science text for inline usage (main site hero) */
 .science-text {
   font-family: 'IBM Plex Mono', monospace;
   color: var(--ww-primary);
@@ -118,7 +151,6 @@ h1, h2, h3, h4, h5, h6 {
   padding: 2px 12px;
   border: 1px solid var(--ww-border);
   border-radius: 2px;
-  animation: textScramble 0.8s ease-out forwards;
 }
 
 /* Smooth section transitions */

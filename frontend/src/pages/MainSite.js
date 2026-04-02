@@ -401,7 +401,7 @@ export default function MainSite() {
             </div>
             <div className="hidden lg:flex items-center justify-center">
               <div className="text-center">
-                <img src="https://customer-assets.emergentagent.com/job_unified-kyc-platform/artifacts/pfh0lco5_wolff%20logo.png" alt="Wealthwolffs" className="w-40 h-40 object-contain mx-auto mb-6 opacity-50" />
+                <img src="/logo-white.png" alt="Wealthwolffs" className="w-40 h-40 object-contain mx-auto mb-6 opacity-50" />
                 <p className="text-sm text-[#475569]">Wealthwolffs Global Hedged Solutions</p>
                 <p className="text-xs text-[#C4A47C] mt-2">Building Wealth. Protecting Futures.</p>
               </div>

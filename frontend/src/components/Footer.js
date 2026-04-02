@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import { ArrowUpRight } from 'lucide-react';
 
-const LOGO_URL = 'https://customer-assets.emergentagent.com/job_unified-kyc-platform/artifacts/pfh0lco5_wolff%20logo.png';
+const LOGO_URL = '/logo-white.png';
 
 const socialLinks = [
   { name: 'Twitter', icon: 'fa-x-twitter', url: '#' },

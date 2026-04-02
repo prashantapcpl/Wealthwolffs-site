@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useAuth } from '@/contexts/AuthContext';
 import { ChevronDown, Menu, X, User, LogOut, Shield } from 'lucide-react';
 
-const LOGO_URL = 'https://customer-assets.emergentagent.com/job_unified-kyc-platform/artifacts/pfh0lco5_wolff%20logo.png';
+const LOGO_URL = '/logo-white.png';
 
 const aboutItems = [
   { label: 'Who are we', href: '#who-are-we' },
