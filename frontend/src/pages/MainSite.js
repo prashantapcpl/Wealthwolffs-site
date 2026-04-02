@@ -220,8 +220,8 @@ export default function MainSite() {
         <div className="relative py-14 md:py-20 bg-[#F9F8F6]" data-testid="hero-section">
           <div className="max-w-7xl mx-auto px-6 md:px-12 flex flex-col lg:flex-row items-center gap-12">
             <div className="flex-1">
-              <p className="overline mb-4">Welcome to Wealthwolffs</p>
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-medium tracking-tight text-[#0A192F] leading-tight mb-6">
+              <p className="overline text-sm mb-3">Welcome to Wealthwolffs</p>
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-[#0A192F] leading-[1.1] mb-5" style={{ fontFamily: 'Sora, sans-serif' }}>
                 Building Generational<br />
                 <span className="text-[#003B5C]">Wealth</span> Through{' '}
                 <span className="science-text">Science</span>
@@ -265,8 +265,8 @@ export default function MainSite() {
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
-              <p className="overline mb-4">About Us</p>
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-medium tracking-tight text-[#0A192F] mb-6">
+              <p className="overline text-sm mb-3">About Us</p>
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-medium tracking-tight text-[#0A192F] mb-5">
                 Who Are We
               </h2>
               <p className="text-base text-[#475569] leading-relaxed mb-4">
@@ -286,8 +286,8 @@ export default function MainSite() {
       {/* Why Wealthwolffs */}
       <Section id="why-wealthwolffs" className="py-14 md:py-20 bg-[#F9F8F6]">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
-          <p className="overline mb-4">Why Choose Us</p>
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-medium tracking-tight text-[#0A192F] mb-12">
+          <p className="overline text-sm mb-3">Why Choose Us</p>
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-medium tracking-tight text-[#0A192F] mb-8">
             Why Wealthwolffs
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">            {whyWealthwolffs.map((item, i) => (
@@ -305,7 +305,7 @@ export default function MainSite() {
       <Section id="founder" className="py-14 md:py-20">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <div className="max-w-3xl mx-auto text-center">
-            <p className="overline mb-4">Leadership</p>
+            <p className="overline text-sm mb-3">Leadership</p>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-medium tracking-tight text-[#0A192F] mb-6">
               Our Founder
             </h2>
@@ -323,7 +323,7 @@ export default function MainSite() {
       <Section id="careers" className="py-14 md:py-20 bg-[#F9F8F6]">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <div className="max-w-3xl">
-            <p className="overline mb-4">Join Our Team</p>
+            <p className="overline text-sm mb-3">Join Our Team</p>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-medium tracking-tight text-[#0A192F] mb-6">
               Careers at Wealthwolffs
             </h2>
@@ -340,7 +340,7 @@ export default function MainSite() {
       {/* Media / News */}
       <Section id="media" className="py-14 md:py-20">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
-          <p className="overline mb-4">In The News</p>
+          <p className="overline text-sm mb-3">In The News</p>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-medium tracking-tight text-[#0A192F] mb-8">
             Media & Insights
           </h2>
@@ -351,7 +351,7 @@ export default function MainSite() {
       {/* Testimonials */}
       <Section id="testimonials" className="py-14 md:py-20 bg-[#F9F8F6]">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
-          <p className="overline mb-4">Testimonials</p>
+          <p className="overline text-sm mb-3">Testimonials</p>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-medium tracking-tight text-[#0A192F] mb-8">
             What Our Customers Say
           </h2>
@@ -362,7 +362,7 @@ export default function MainSite() {
       {/* Solutions */}
       <Section id="solutions" className="py-14 md:py-20">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
-          <p className="overline mb-4">Our Solutions</p>
+          <p className="overline text-sm mb-3">Our Solutions</p>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-medium tracking-tight text-[#0A192F] mb-10">
             Solutions & Services
           </h2>
@@ -372,7 +372,7 @@ export default function MainSite() {
       {/* Partners Strip */}
       <section className="py-12 border-y border-[#E2E8F0] overflow-hidden" data-testid="partners-strip">
         <div className="max-w-7xl mx-auto px-6 md:px-12 mb-6">
-          <p className="overline text-center">Our Associated Partners</p>
+          <p className="overline text-sm text-center">Our Associated Partners</p>
         </div>
         <div className="relative overflow-hidden">
           <div className="partners-scroll flex gap-16 items-center whitespace-nowrap">
@@ -388,7 +388,7 @@ export default function MainSite() {
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
             <div>
-              <p className="overline mb-4">Get in Touch</p>
+              <p className="overline text-sm mb-3">Get in Touch</p>
               <h2 className="text-2xl sm:text-3xl lg:text-4xl font-medium tracking-tight text-[#0A192F] mb-6">
                 Contact Us
               </h2>
