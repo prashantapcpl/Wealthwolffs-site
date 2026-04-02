@@ -38,25 +38,28 @@ export default function LandingPage() {
 
   return (
     <div className="landing-hero" data-testid="landing-page">
-      {/* Top left - Logo + WEALTHWOLFFS (2x bigger) */}
-      <button
-        onClick={() => navigate('/')}
+      {/* Top left - Logo + Company full name */}
+      <div
         className="absolute top-0 left-0 z-10 flex items-center gap-4 px-6 md:px-12 py-5 transition-all duration-700"
         style={{ opacity: showText ? 1 : 0 }}
-        data-testid="landing-logo-btn"
       >
-        <img src={LOGO_URL} alt="Wealthwolffs" className="h-16 w-16 sm:h-20 sm:w-20 object-contain" />
-        <span className="text-lg sm:text-2xl font-semibold text-[#0A192F] tracking-wide">WEALTHWOLFFS</span>
-      </button>
+        <button onClick={() => navigate('/')} className="flex items-center gap-4" data-testid="landing-logo-btn">
+          <img src={LOGO_URL} alt="Wealthwolffs" className="h-16 w-16 sm:h-20 sm:w-20 object-contain" />
+          <div className="flex flex-col">
+            <span className="text-lg sm:text-2xl font-semibold text-[#0A192F] tracking-wide leading-tight">WEALTHWOLFFS</span>
+            <span className="text-[10px] sm:text-xs text-[#475569] tracking-[0.15em] uppercase leading-tight mt-0.5">Global Hedged Solutions</span>
+          </div>
+        </button>
+      </div>
 
-      {/* Center content - no logo, just text */}
-      <div className="text-center px-6 max-w-6xl">
-        {/* "Wealthwolffs understands the Financial" */}
+      {/* Center content */}
+      <div className="text-center px-6 max-w-6xl mt-16 sm:mt-20">
+        {/* "We at Wealthwolffs understand the Financial" */}
         <p
           className="text-lg sm:text-2xl md:text-3xl text-[#0A192F] font-medium tracking-wide mb-2 transition-all duration-700"
           style={{ opacity: showText ? 1 : 0, transform: showText ? 'translateY(0)' : 'translateY(15px)', fontFamily: 'Cabinet Grotesk, IBM Plex Sans, sans-serif' }}
         >
-          Wealthwolffs understands the{' '}
+          We at Wealthwolffs understand the{' '}
           <span className="text-[#003B5C]" style={{ fontFamily: 'IBM Plex Mono, monospace', fontWeight: 500 }}>Financial</span>
         </p>
 

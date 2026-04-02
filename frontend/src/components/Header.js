@@ -72,9 +72,8 @@ export default function Header() {
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo - clicking goes to landing/home page */}
-          <button onClick={() => navigate('/')} className="flex items-center gap-3" data-testid="header-logo">
+          <button onClick={() => navigate('/')} className="flex items-center gap-2" data-testid="header-logo">
             <img src={LOGO_URL} alt="Wealthwolffs" className="h-10 w-10 object-contain" />
-            <span className="text-sm font-semibold text-[#0A192F] tracking-wide hidden sm:block">WEALTHWOLFFS</span>
           </button>
 
           {/* 4 main buttons - always visible, no hamburger */}
