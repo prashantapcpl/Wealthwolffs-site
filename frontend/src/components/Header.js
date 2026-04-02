@@ -73,7 +73,7 @@ export default function Header() {
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo - clicking goes to landing/home page */}
           <button onClick={() => navigate('/')} className="flex items-center gap-2" data-testid="header-logo">
-            <img src={LOGO_URL} alt="Wealthwolffs" className="h-10 w-10 object-contain" />
+            <img src={LOGO_URL} alt="Wealthwolffs" className="h-14 w-14 object-contain" />
           </button>
 
           {/* 4 main buttons - always visible, no hamburger */}
