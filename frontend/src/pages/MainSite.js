@@ -93,7 +93,7 @@ function SolutionsCarousel() {
       </div>
       <div ref={scrollRef} className="flex gap-5 overflow-x-auto solutions-scroll pb-4 -mx-2 px-2" data-testid="solutions-carousel">
         {solutions.map((s, i) => (
-          <div key={i} className="flex-none w-[280px] bg-white border border-[#E2E8F0] card-lift card-left-accent relative overflow-hidden" data-testid={`solution-card-${i}`}>
+          <div key={i} className="flex-none w-[280px] bg-white border border-[#E2E8F0] card-lift relative overflow-hidden" data-testid={`solution-card-${i}`}>
             {/* Watermark number */}
             <span className="absolute top-2 right-3 text-5xl font-extrabold text-[#003B5C]/[0.04]" style={{ fontFamily: 'Sora, sans-serif' }}>{s.num}</span>
             <div className="p-6 relative z-10">
@@ -120,7 +120,7 @@ function TestimonialsSection() {
   return (
     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
       {testimonials.map((t, i) => (
-        <div key={i} className="bg-white border border-[#E2E8F0] p-8 card-lift card-accent-top relative" data-testid={`testimonial-${i}`}>
+        <div key={i} className="bg-white border border-[#E2E8F0] p-8 card-lift relative" data-testid={`testimonial-${i}`}>
           {/* Large decorative quote */}
           <span className="absolute top-4 right-6 text-6xl leading-none text-[#C4A47C]/20" style={{ fontFamily: 'Playfair Display, serif' }}>"</span>
           <div className="relative z-10">
@@ -248,7 +248,7 @@ export default function MainSite() {
 
           <div className="max-w-7xl mx-auto px-6 md:px-12 flex flex-col lg:flex-row items-center gap-12 relative z-10">
             <div className="flex-1">
-              <p className="overline-decorated overline text-sm mb-3">Welcome to Wealthwolffs</p>
+              <p className="overline text-sm mb-3">Welcome to Wealthwolffs</p>
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-[#0A192F] leading-[1.1] mb-5" style={{ fontFamily: 'Sora, sans-serif' }}>
                 Building Generational<br />
                 <span className="text-[#003B5C]">Wealth</span> Through{' '}
@@ -297,12 +297,12 @@ export default function MainSite() {
 
       {/* Who Are We */}
       <Section id="who-are-we" className="py-14 md:py-20 relative overflow-hidden">
-        <span className="watermark -right-10 top-0">01</span>
+
         <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
-              <p className="overline-decorated overline text-sm mb-3">About Us</p>
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-medium tracking-tight text-[#0A192F] mb-5 heading-accent">
+              <p className="overline text-sm mb-3">About Us</p>
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-medium tracking-tight text-[#0A192F] mb-5">
                 Who Are We
               </h2>
               <p className="text-base text-[#475569] leading-relaxed mb-4">
@@ -324,15 +324,15 @@ export default function MainSite() {
 
       {/* Why Wealthwolffs */}
       <Section id="why-wealthwolffs" className="py-14 md:py-20 bg-[#F9F8F6] relative overflow-hidden">
-        <span className="watermark -left-10 top-0">02</span>
+
         <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
-          <p className="overline-decorated overline text-sm mb-3">Why Choose Us</p>
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-medium tracking-tight text-[#0A192F] mb-8 heading-accent">
+          <p className="overline text-sm mb-3">Why Choose Us</p>
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-medium tracking-tight text-[#0A192F] mb-8">
             Why Wealthwolffs
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {whyWealthwolffs.map((item, i) => (
-              <div key={i} className="bg-white border border-[#E2E8F0] p-6 card-lift card-accent-top" data-testid={`why-card-${i}`}>
+              <div key={i} className="bg-white border border-[#E2E8F0] p-6 card-lift" data-testid={`why-card-${i}`}>
                 <div className="icon-circle mb-4 pulse-ring">
                   <item.icon className="w-6 h-6 text-[#003B5C]" />
                 </div>
@@ -346,7 +346,7 @@ export default function MainSite() {
 
       {/* Founder */}
       <Section id="founder" className="py-14 md:py-20 relative overflow-hidden">
-        <span className="watermark right-10 top-0">03</span>
+
         <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
           <div className="max-w-3xl mx-auto text-center">
             <p className="overline text-sm mb-3">Leadership</p>
@@ -368,8 +368,8 @@ export default function MainSite() {
         <div className="geo-circle w-48 h-48 -bottom-10 -right-10 opacity-40"></div>
         <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
           <div className="max-w-3xl">
-            <p className="overline-decorated overline text-sm mb-3">Join Our Team</p>
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-medium tracking-tight text-[#0A192F] mb-6 heading-accent">
+            <p className="overline text-sm mb-3">Join Our Team</p>
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-medium tracking-tight text-[#0A192F] mb-6">
               Careers at Wealthwolffs
             </h2>
             <p className="text-base text-[#475569] leading-relaxed mb-6">
@@ -384,10 +384,10 @@ export default function MainSite() {
 
       {/* Media / News */}
       <Section id="media" className="py-14 md:py-20 relative overflow-hidden">
-        <span className="watermark -right-10 top-0">04</span>
+
         <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
-          <p className="overline-decorated overline text-sm mb-3">In The News</p>
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-medium tracking-tight text-[#0A192F] mb-8 heading-accent">
+          <p className="overline text-sm mb-3">In The News</p>
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-medium tracking-tight text-[#0A192F] mb-8">
             Media & Insights
           </h2>
           <MediaSection />
@@ -396,10 +396,10 @@ export default function MainSite() {
 
       {/* Testimonials */}
       <Section id="testimonials" className="py-14 md:py-20 bg-[#F9F8F6] relative overflow-hidden">
-        <span className="watermark -left-5 top-0">05</span>
+
         <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
-          <p className="overline-decorated overline text-sm mb-3">Testimonials</p>
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-medium tracking-tight text-[#0A192F] mb-8 heading-accent">
+          <p className="overline text-sm mb-3">Testimonials</p>
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-medium tracking-tight text-[#0A192F] mb-8">
             What Our Customers Say
           </h2>
           <TestimonialsSection />
@@ -408,10 +408,10 @@ export default function MainSite() {
 
       {/* Solutions */}
       <Section id="solutions" className="py-14 md:py-20 relative overflow-hidden">
-        <span className="watermark right-5 top-0">06</span>
+
         <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
-          <p className="overline-decorated overline text-sm mb-3">Our Solutions</p>
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-medium tracking-tight text-[#0A192F] mb-10 heading-accent">
+          <p className="overline text-sm mb-3">Our Solutions</p>
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-medium tracking-tight text-[#0A192F] mb-10">
             Solutions & Services
           </h2>
           <SolutionsCarousel />
@@ -438,8 +438,8 @@ export default function MainSite() {
         <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
             <div>
-              <p className="overline-decorated overline text-sm mb-3">Get in Touch</p>
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-medium tracking-tight text-[#0A192F] mb-6 heading-accent">
+              <p className="overline text-sm mb-3">Get in Touch</p>
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-medium tracking-tight text-[#0A192F] mb-6">
                 Contact Us
               </h2>
               <p className="text-base text-[#475569] leading-relaxed mb-8">
