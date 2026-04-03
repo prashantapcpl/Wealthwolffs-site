@@ -44,7 +44,7 @@ export default function LandingPage() {
         style={{ opacity: showText ? 1 : 0 }}
       >
         <button onClick={() => navigate('/')} className="flex items-center gap-4" data-testid="landing-logo-btn">
-          <img src={LOGO_URL} alt="Wealthwolffs" className="h-20 w-20 sm:h-24 sm:w-24 object-contain" />
+          <img src={LOGO_URL} alt="Wealthwolffs" className="h-24 w-24 sm:h-28 sm:w-28 object-contain" />
           <div className="flex flex-col">
             <span className="text-lg sm:text-2xl font-semibold text-[#0A192F] tracking-wide leading-tight">WEALTHWOLFFS</span>
             <span className="text-[10px] sm:text-xs text-[#475569] tracking-[0.15em] uppercase leading-tight mt-0.5">Global Hedged Solutions</span>

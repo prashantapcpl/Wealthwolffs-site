@@ -70,10 +70,10 @@ export default function Header() {
   return (
     <header className="glass-header fixed top-0 left-0 right-0 z-50" data-testid="main-header">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
-        <div className="flex items-center justify-between h-16 md:h-20">
+        <div className="flex items-center justify-between h-20 md:h-24">
           {/* Logo - clicking goes to landing/home page */}
           <button onClick={() => navigate('/')} className="flex items-center gap-2" data-testid="header-logo">
-            <img src={LOGO_URL} alt="Wealthwolffs" className="h-16 w-16 object-contain" />
+            <img src={LOGO_URL} alt="Wealthwolffs" className="h-20 w-20 object-contain" />
           </button>
 
           {/* 4 main buttons - always visible, no hamburger */}
