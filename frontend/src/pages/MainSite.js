@@ -268,16 +268,20 @@ export default function MainSite() {
               {/* Stats with animated counters */}
               <div className="flex gap-6 sm:gap-8 mt-6 sm:mt-8 pt-5 sm:pt-6 border-t border-[#E2E8F0]">
                 <div>
-                  <p className="text-xl sm:text-2xl md:text-3xl font-bold text-[#003B5C] stat-number" style={{ fontFamily: 'Sora, sans-serif' }}><AnimatedCounter target={5} suffix="+" /></p>
+                  <p className="text-xl sm:text-2xl md:text-3xl font-bold text-[#003B5C] stat-number" style={{ fontFamily: 'Sora, sans-serif' }}><AnimatedCounter target={10} suffix="+" /></p>
                   <p className="text-[10px] sm:text-xs text-[#475569] mt-1">Years Experience</p>
                 </div>
                 <div>
-                  <p className="text-xl sm:text-2xl md:text-3xl font-bold text-[#003B5C] stat-number" style={{ fontFamily: 'Sora, sans-serif' }}><AnimatedCounter target={500} suffix="+" /></p>
+                  <p className="text-xl sm:text-2xl md:text-3xl font-bold text-[#003B5C] stat-number" style={{ fontFamily: 'Sora, sans-serif' }}><AnimatedCounter target={250} suffix="+" /></p>
                   <p className="text-[10px] sm:text-xs text-[#475569] mt-1">Happy Clients</p>
                 </div>
                 <div>
-                  <p className="text-xl sm:text-2xl md:text-3xl font-bold text-[#003B5C] stat-number" style={{ fontFamily: 'Sora, sans-serif' }}><AnimatedCounter target={9} suffix="+" /></p>
+                  <p className="text-xl sm:text-2xl md:text-3xl font-bold text-[#003B5C] stat-number" style={{ fontFamily: 'Sora, sans-serif' }}><AnimatedCounter target={10} suffix="+" /></p>
                   <p className="text-[10px] sm:text-xs text-[#475569] mt-1">Solutions Offered</p>
+                </div>
+                <div>
+                  <p className="text-xl sm:text-2xl md:text-3xl font-bold text-[#003B5C] stat-number" style={{ fontFamily: 'Sora, sans-serif' }}><AnimatedCounter target={100} suffix=" Cr.+" /></p>
+                  <p className="text-[10px] sm:text-xs text-[#475569] mt-1">AUM Handled</p>
                 </div>
               </div>
             </div>
