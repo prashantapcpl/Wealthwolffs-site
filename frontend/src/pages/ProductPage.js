@@ -1,7 +1,7 @@
 import { useParams, useNavigate } from 'react-router-dom';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import { ArrowRight, Bell, TrendingUp, Zap, BarChart3, Shield, Globe } from 'lucide-react';
+import { ArrowRight, Bell, TrendingUp, Zap, BarChart3, Shield, Globe, Lock, Wallet, LineChart } from 'lucide-react';
 
 const products = {
   wolffsinstaalerts: {
@@ -15,7 +15,7 @@ const products = {
       { icon: Shield, title: 'Risk Alerts', desc: 'Get warned about potential risks, market corrections, and portfolio vulnerabilities.' },
     ],
     ctaText: 'Go to WolffsInstaAlerts',
-    ctaLink: '#',
+    ctaLink: 'https://www.wolffsinstaalerts.com',
   },
   wolffsinstatrade: {
     name: 'WolffsInstaTrade',
@@ -28,7 +28,20 @@ const products = {
       { icon: Shield, title: 'Risk Management', desc: 'Built-in stop-loss, take-profit, and position sizing tools to protect your capital.' },
     ],
     ctaText: 'Go to WolffsInstaTrade',
-    ctaLink: '#',
+    ctaLink: 'https://www.wolffsinstatrade.in',
+  },
+  wolffsstreet: {
+    name: 'WolffsStreet',
+    tagline: 'Exclusive hedged solutions for HNI clients.',
+    description: 'WolffsStreet is our premium, invite-only platform designed exclusively for High Net-Worth Individuals. We offer bespoke hedged investment strategies that combine capital protection with aggressive growth targets, managed by our senior portfolio team with decades of institutional experience.',
+    features: [
+      { icon: Lock, title: 'Exclusive Access', desc: 'Invite-only platform for HNI clients with dedicated portfolio managers and priority support.' },
+      { icon: Shield, title: 'Hedged Strategies', desc: 'Proprietary hedging models that protect capital while delivering superior risk-adjusted returns.' },
+      { icon: Wallet, title: 'Bespoke Portfolios', desc: 'Customized investment portfolios tailored to your specific wealth goals, risk tolerance, and timeline.' },
+      { icon: LineChart, title: 'Institutional Grade', desc: 'Access the same strategies used by top institutional investors, pension funds, and sovereign wealth funds.' },
+    ],
+    ctaText: 'Go to WolffsStreet',
+    ctaLink: 'https://www.wolffsstreet.com',
   },
 };
 

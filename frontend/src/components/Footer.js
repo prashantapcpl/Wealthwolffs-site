@@ -6,8 +6,8 @@ const LOGO_DARK_URL = '/logo-dark.png';
 
 const socialLinks = [
   { name: 'Twitter', icon: 'fa-x-twitter', url: '#' },
-  { name: 'Facebook', icon: 'fa-facebook-f', url: '#' },
-  { name: 'Instagram', icon: 'fa-instagram', url: '#' },
+  { name: 'Facebook', icon: 'fa-facebook-f', url: 'https://www.facebook.com/wealthwolffs' },
+  { name: 'Instagram', icon: 'fa-instagram', url: 'https://www.instagram.com/wealthwolffs' },
   { name: 'Threads', icon: 'fa-threads', url: '#' },
   { name: 'YouTube', icon: 'fa-youtube', url: '#' },
 ];
@@ -71,6 +71,9 @@ export default function Footer() {
               </button>
               <button onClick={() => navigate('/products/wolffsinstatrade')} className="flex items-center gap-1 text-sm text-white/60 hover:text-white transition-colors">
                 WolffsInstaTrade <ArrowUpRight className="w-3 h-3" />
+              </button>
+              <button onClick={() => navigate('/products/wolffsstreet')} className="flex items-center gap-1 text-sm text-white/60 hover:text-white transition-colors">
+                WolffsStreet <ArrowUpRight className="w-3 h-3" />
               </button>
               <button onClick={() => navigate('/academy')} className="flex items-center gap-1 text-sm text-white/60 hover:text-white transition-colors">
                 Wolffs Academy <ArrowUpRight className="w-3 h-3" />

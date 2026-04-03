@@ -17,7 +17,7 @@ const aboutItems = [
 const productItems = [
   { label: 'WolffsInstaAlerts', href: '/products/wolffsinstaalerts' },
   { label: 'WolffsInstaTrade', href: '/products/wolffsinstatrade' },
-  { label: 'Wolffs Academy', href: '/academy' },
+  { label: 'WolffsStreet', href: '/products/wolffsstreet' },
 ];
 
 function DropdownMenu({ label, items, onNavigate }) {
