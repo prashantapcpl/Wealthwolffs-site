@@ -40,27 +40,27 @@ export default function LandingPage() {
     <div className="landing-hero" data-testid="landing-page">
       {/* Top left - Logo + Company full name */}
       <div
-        className="absolute top-0 left-0 z-10 flex items-center gap-4 px-6 md:px-12 py-5 transition-all duration-700"
+        className="absolute top-0 left-0 z-10 flex items-center gap-3 sm:gap-4 px-4 sm:px-6 md:px-12 py-4 sm:py-5 transition-all duration-700"
         style={{ opacity: showText ? 1 : 0 }}
       >
-        <button onClick={() => navigate('/')} className="flex items-center gap-4" data-testid="landing-logo-btn">
-          <img src={LOGO_URL} alt="Wealthwolffs" className="h-24 w-24 sm:h-28 sm:w-28 object-contain" />
+        <button onClick={() => navigate('/')} className="flex items-center gap-3 sm:gap-4" data-testid="landing-logo-btn">
+          <img src={LOGO_URL} alt="Wealthwolffs" className="h-16 w-16 sm:h-24 sm:w-24 md:h-28 md:w-28 object-contain" />
           <div className="flex flex-col">
-            <span className="text-lg sm:text-2xl font-semibold text-[#0A192F] tracking-wide leading-tight">WEALTHWOLFFS</span>
-            <span className="text-[10px] sm:text-xs text-[#475569] tracking-[0.15em] uppercase leading-tight mt-0.5">Global Hedged Solutions</span>
+            <span className="text-base sm:text-lg md:text-2xl font-semibold text-[#0A192F] tracking-wide leading-tight">WEALTHWOLFFS</span>
+            <span className="text-[8px] sm:text-[10px] md:text-xs text-[#475569] tracking-[0.15em] uppercase leading-tight mt-0.5">Global Hedged Solutions</span>
           </div>
         </button>
       </div>
 
       {/* Center content */}
-      <div className="text-center px-6 max-w-6xl mt-16 sm:mt-20">
+      <div className="text-center px-4 sm:px-6 max-w-6xl mt-12 sm:mt-16 md:mt-20">
         {/* "We at Wealthwolffs understand the Financial" */}
         <p
-          className="text-lg sm:text-2xl md:text-3xl text-[#0A192F] font-medium tracking-wide mb-2 transition-all duration-700"
+          className="text-base sm:text-xl md:text-2xl lg:text-3xl text-[#0A192F] font-medium tracking-wide mb-2 transition-all duration-700"
           style={{ opacity: showText ? 1 : 0, transform: showText ? 'translateY(0)' : 'translateY(15px)', fontFamily: 'Cabinet Grotesk, IBM Plex Sans, sans-serif' }}
         >
           We at Wealthwolffs understand the{' '}
-          <span className="text-[#003B5C]" style={{ fontFamily: 'IBM Plex Mono, monospace', fontWeight: 500 }}>Financial</span>
+          <span className="financial-magic">Financial</span>
         </p>
 
         {/* Science - Two Sigma style massive text */}

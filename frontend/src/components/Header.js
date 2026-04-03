@@ -76,14 +76,14 @@ export default function Header() {
             <img src={LOGO_URL} alt="Wealthwolffs" className="h-20 w-20 object-contain" />
           </button>
 
-          {/* 4 main buttons - always visible, no hamburger */}
-          <nav className="flex items-center gap-4 sm:gap-6" data-testid="desktop-nav">
+          {/* 4 main buttons - always visible, responsive sizing */}
+          <nav className="flex items-center gap-2 sm:gap-4 md:gap-6" data-testid="desktop-nav">
             <DropdownMenu label="About Us" items={aboutItems} onNavigate={handleNav} />
-            <button onClick={() => handleNav('#solutions')} className="text-sm font-medium text-[#0A192F] hover:text-[#003B5C] transition-colors py-2" data-testid="nav-solutions">
+            <button onClick={() => handleNav('#solutions')} className="text-xs sm:text-sm font-medium text-[#0A192F] hover:text-[#003B5C] transition-colors py-2" data-testid="nav-solutions">
               Solutions
             </button>
             <DropdownMenu label="Products" items={productItems} onNavigate={handleNav} />
-            <button onClick={() => handleNav('#contact')} className="text-sm font-medium text-[#0A192F] hover:text-[#003B5C] transition-colors py-2" data-testid="nav-contact">
+            <button onClick={() => handleNav('#contact')} className="text-xs sm:text-sm font-medium text-[#0A192F] hover:text-[#003B5C] transition-colors py-2 hidden sm:block" data-testid="nav-contact">
               Contact Us
             </button>
           </nav>

@@ -239,45 +239,45 @@ export default function MainSite() {
       <Header />
 
       {/* Hero Welcome */}
-      <section className="pt-16">
-        <div className="relative py-14 md:py-20 bg-[#F9F8F6] overflow-hidden" data-testid="hero-section">
+      <section className="pt-20 md:pt-24">
+        <div className="relative py-10 sm:py-14 md:py-20 bg-[#F9F8F6] overflow-hidden" data-testid="hero-section">
           {/* Decorative geometric elements */}
-          <div className="geo-circle w-64 h-64 -top-20 -right-20 opacity-50"></div>
-          <div className="geo-circle w-40 h-40 bottom-10 -left-10 opacity-30"></div>
+          <div className="geo-circle w-64 h-64 -top-20 -right-20 opacity-50 hidden sm:block"></div>
+          <div className="geo-circle w-40 h-40 bottom-10 -left-10 opacity-30 hidden sm:block"></div>
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-br from-[#003B5C]/[0.02] to-[#C4A47C]/[0.02] rounded-full pointer-events-none"></div>
 
-          <div className="max-w-7xl mx-auto px-6 md:px-12 flex flex-col lg:flex-row items-center gap-12 relative z-10">
-            <div className="flex-1">
-              <p className="overline text-sm mb-3">Welcome to Wealthwolffs</p>
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-[#0A192F] leading-[1.1] mb-5" style={{ fontFamily: 'Sora, sans-serif' }}>
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 flex flex-col lg:flex-row items-center gap-8 lg:gap-12 relative z-10">
+            <div className="flex-1 w-full">
+              <p className="overline text-xs sm:text-sm mb-3">Welcome to Wealthwolffs</p>
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-[#0A192F] leading-[1.1] mb-4 sm:mb-5" style={{ fontFamily: 'Sora, sans-serif' }}>
                 Building Generational<br />
                 <span className="text-[#003B5C]">Wealth</span> Through{' '}
                 <span className="science-text">Science</span>
               </h1>
-              <p className="text-base sm:text-lg text-[#475569] leading-relaxed max-w-lg mb-8">
+              <p className="text-sm sm:text-base md:text-lg text-[#475569] leading-relaxed max-w-lg mb-6 sm:mb-8">
                 Wealthwolffs Global Hedged Solutions delivers institutional-grade investment strategies to grow, protect, and sustain your wealth across generations.
               </p>
-              <div className="flex flex-wrap gap-4">
-                <button onClick={() => document.querySelector('#solutions')?.scrollIntoView({ behavior: 'smooth' })} className="btn-primary text-xs tracking-[0.1em] uppercase px-8 py-3.5 inline-flex items-center gap-2" data-testid="hero-explore-btn">
+              <div className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4">
+                <button onClick={() => document.querySelector('#solutions')?.scrollIntoView({ behavior: 'smooth' })} className="btn-primary text-xs tracking-[0.1em] uppercase px-6 sm:px-8 py-3 sm:py-3.5 inline-flex items-center justify-center gap-2" data-testid="hero-explore-btn">
                   Explore Solutions <ArrowRight className="w-4 h-4" />
                 </button>
-                <button onClick={() => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })} className="btn-secondary text-xs tracking-[0.1em] uppercase px-8 py-3.5" data-testid="hero-contact-btn">
+                <button onClick={() => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })} className="btn-secondary text-xs tracking-[0.1em] uppercase px-6 sm:px-8 py-3 sm:py-3.5" data-testid="hero-contact-btn">
                   Get in Touch
                 </button>
               </div>
               {/* Stats with animated counters */}
-              <div className="flex gap-8 mt-8 pt-6 border-t border-[#E2E8F0]">
+              <div className="flex gap-6 sm:gap-8 mt-6 sm:mt-8 pt-5 sm:pt-6 border-t border-[#E2E8F0]">
                 <div>
-                  <p className="text-2xl sm:text-3xl font-bold text-[#003B5C] stat-number" style={{ fontFamily: 'Sora, sans-serif' }}><AnimatedCounter target={5} suffix="+" /></p>
-                  <p className="text-xs text-[#475569] mt-1">Years Experience</p>
+                  <p className="text-xl sm:text-2xl md:text-3xl font-bold text-[#003B5C] stat-number" style={{ fontFamily: 'Sora, sans-serif' }}><AnimatedCounter target={5} suffix="+" /></p>
+                  <p className="text-[10px] sm:text-xs text-[#475569] mt-1">Years Experience</p>
                 </div>
                 <div>
-                  <p className="text-2xl sm:text-3xl font-bold text-[#003B5C] stat-number" style={{ fontFamily: 'Sora, sans-serif' }}><AnimatedCounter target={500} suffix="+" /></p>
-                  <p className="text-xs text-[#475569] mt-1">Happy Clients</p>
+                  <p className="text-xl sm:text-2xl md:text-3xl font-bold text-[#003B5C] stat-number" style={{ fontFamily: 'Sora, sans-serif' }}><AnimatedCounter target={500} suffix="+" /></p>
+                  <p className="text-[10px] sm:text-xs text-[#475569] mt-1">Happy Clients</p>
                 </div>
                 <div>
-                  <p className="text-2xl sm:text-3xl font-bold text-[#003B5C] stat-number" style={{ fontFamily: 'Sora, sans-serif' }}><AnimatedCounter target={9} suffix="+" /></p>
-                  <p className="text-xs text-[#475569] mt-1">Solutions Offered</p>
+                  <p className="text-xl sm:text-2xl md:text-3xl font-bold text-[#003B5C] stat-number" style={{ fontFamily: 'Sora, sans-serif' }}><AnimatedCounter target={9} suffix="+" /></p>
+                  <p className="text-[10px] sm:text-xs text-[#475569] mt-1">Solutions Offered</p>
                 </div>
               </div>
             </div>
@@ -299,7 +299,7 @@ export default function MainSite() {
       <Section id="who-are-we" className="py-14 md:py-20 relative overflow-hidden">
 
         <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
             <div>
               <p className="overline text-sm mb-3">About Us</p>
               <h2 className="text-2xl sm:text-3xl lg:text-4xl font-medium tracking-tight text-[#0A192F] mb-5">
@@ -314,25 +314,51 @@ export default function MainSite() {
             </div>
             <div className="relative">
               <div className="dot-grid">
-                <img src={ABOUT_IMAGE} alt="Team Meeting" className="w-full h-[400px] object-cover relative z-10" />
+                <img src={ABOUT_IMAGE} alt="Team Meeting" className="w-full h-[280px] sm:h-[350px] lg:h-[400px] object-cover relative z-10" />
               </div>
-              <div className="absolute -bottom-4 -left-4 w-full h-full border-2 border-[#003B5C]/10 -z-0"></div>
+              <div className="absolute -bottom-4 -left-4 w-full h-full border-2 border-[#003B5C]/10 -z-0 hidden lg:block"></div>
             </div>
           </div>
         </div>
       </Section>
 
+      {/* Solutions - moved right after About Us */}
+      <Section id="solutions" className="py-14 md:py-20 bg-[#F9F8F6] relative overflow-hidden">
+
+        <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
+          <p className="overline text-sm mb-3">Our Solutions</p>
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-medium tracking-tight text-[#0A192F] mb-10">
+            Solutions & Services
+          </h2>
+          <SolutionsCarousel />
+        </div>
+      </Section>
+
+      {/* Partners Strip */}
+      <section className="py-8 sm:py-12 border-y border-[#E2E8F0] overflow-hidden" data-testid="partners-strip">
+        <div className="max-w-7xl mx-auto px-6 md:px-12 mb-4 sm:mb-6">
+          <p className="overline text-sm text-center">Our Associated Partners</p>
+        </div>
+        <div className="relative overflow-hidden">
+          <div className="partners-scroll flex gap-10 sm:gap-16 items-center whitespace-nowrap">
+            {[...partners, ...partners, ...partners].map((p, i) => (
+              <span key={i} className="text-base sm:text-lg font-semibold text-[#0A192F]/20 tracking-wider uppercase">{p}</span>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Why Wealthwolffs */}
-      <Section id="why-wealthwolffs" className="py-14 md:py-20 bg-[#F9F8F6] relative overflow-hidden">
+      <Section id="why-wealthwolffs" className="py-14 md:py-20 relative overflow-hidden">
 
         <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
           <p className="overline text-sm mb-3">Why Choose Us</p>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-medium tracking-tight text-[#0A192F] mb-8">
             Why Wealthwolffs
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             {whyWealthwolffs.map((item, i) => (
-              <div key={i} className="bg-white border border-[#E2E8F0] p-6 card-lift" data-testid={`why-card-${i}`}>
+              <div key={i} className="bg-white border border-[#E2E8F0] p-5 sm:p-6 card-lift" data-testid={`why-card-${i}`}>
                 <div className="icon-circle mb-4 pulse-ring">
                   <item.icon className="w-6 h-6 text-[#003B5C]" />
                 </div>
@@ -405,32 +431,6 @@ export default function MainSite() {
           <TestimonialsSection />
         </div>
       </Section>
-
-      {/* Solutions */}
-      <Section id="solutions" className="py-14 md:py-20 relative overflow-hidden">
-
-        <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
-          <p className="overline text-sm mb-3">Our Solutions</p>
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-medium tracking-tight text-[#0A192F] mb-10">
-            Solutions & Services
-          </h2>
-          <SolutionsCarousel />
-        </div>
-      </Section>
-
-      {/* Partners Strip */}
-      <section className="py-12 border-y border-[#E2E8F0] overflow-hidden" data-testid="partners-strip">
-        <div className="max-w-7xl mx-auto px-6 md:px-12 mb-6">
-          <p className="overline text-sm text-center">Our Associated Partners</p>
-        </div>
-        <div className="relative overflow-hidden">
-          <div className="partners-scroll flex gap-16 items-center whitespace-nowrap">
-            {[...partners, ...partners, ...partners].map((p, i) => (
-              <span key={i} className="text-lg font-semibold text-[#0A192F]/20 tracking-wider uppercase">{p}</span>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* Contact */}
       <Section id="contact" className="py-14 md:py-20 bg-[#F9F8F6] relative overflow-hidden">

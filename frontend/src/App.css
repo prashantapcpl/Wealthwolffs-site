@@ -32,6 +32,26 @@
   pointer-events: none;
 }
 
+/* Financial word shimmer effect */
+.financial-magic {
+  position: relative;
+  display: inline-block;
+  font-family: 'IBM Plex Mono', monospace;
+  font-weight: 600;
+  color: #003B5C;
+  background: linear-gradient(90deg, #003B5C 0%, #C4A47C 40%, #003B5C 60%, #C4A47C 100%);
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: financialShimmer 3s ease-in-out infinite;
+}
+
+@keyframes financialShimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
 /* Glassmorphism header */
 .glass-header {
   background: rgba(255, 255, 255, 0.85);
