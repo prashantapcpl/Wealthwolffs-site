@@ -29,20 +29,23 @@ function DropdownMenu({ label, items, onNavigate }) {
       onMouseLeave={() => setOpen(false)}
     >
       <button
-        className="flex items-center gap-1 text-sm font-medium text-[#0A192F] hover:text-[#003B5C] transition-colors py-2 px-1"
+        className="flex items-center gap-1 text-sm md:text-base font-medium text-[#0A192F] hover:text-[#003B5C] transition-colors py-2 px-1"
         data-testid={`nav-${label.toLowerCase().replace(/\s+/g, '-')}`}
+        aria-haspopup="true"
+        aria-expanded={open}
       >
         {label}
         <ChevronDown className={`w-3.5 h-3.5 transition-transform ${open ? 'rotate-180' : ''}`} />
       </button>
       {open && (
-        <div className="absolute top-full left-0 mt-0 py-2 bg-white border border-[#E2E8F0] shadow-lg min-w-[200px] z-50">
+        <div className="absolute top-full left-0 mt-0 py-2 bg-white border border-[#E2E8F0] shadow-lg min-w-[200px] z-50" role="menu">
           {items.map((item) => (
             <button
               key={item.label}
               onClick={() => { onNavigate(item.href); setOpen(false); }}
               className="block w-full text-left px-4 py-2.5 text-sm text-[#475569] hover:text-[#003B5C] hover:bg-[#F9F8F6] transition-colors"
               data-testid={`dropdown-${item.label.toLowerCase().replace(/\s+/g, '-')}`}
+              role="menuitem"
             >
               {item.label}
             </button>
@@ -79,11 +82,11 @@ export default function Header() {
           {/* 4 main buttons - always visible, responsive sizing */}
           <nav className="flex items-center gap-2 sm:gap-4 md:gap-6" data-testid="desktop-nav">
             <DropdownMenu label="About Us" items={aboutItems} onNavigate={handleNav} />
-            <button onClick={() => handleNav('#solutions')} className="text-xs sm:text-sm font-medium text-[#0A192F] hover:text-[#003B5C] transition-colors py-2" data-testid="nav-solutions">
+            <button onClick={() => handleNav('#solutions')} className="text-sm md:text-base font-medium text-[#0A192F] hover:text-[#003B5C] transition-colors py-2" data-testid="nav-solutions">
               Solutions
             </button>
             <DropdownMenu label="Products" items={productItems} onNavigate={handleNav} />
-            <button onClick={() => handleNav('#contact')} className="text-xs sm:text-sm font-medium text-[#0A192F] hover:text-[#003B5C] transition-colors py-2 hidden sm:block" data-testid="nav-contact">
+            <button onClick={() => handleNav('#contact')} className="text-sm md:text-base font-medium text-[#0A192F] hover:text-[#003B5C] transition-colors py-2 hidden sm:block" data-testid="nav-contact">
               Contact Us
             </button>
           </nav>

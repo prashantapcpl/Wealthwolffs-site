@@ -1,7 +1,9 @@
 import { useState, useEffect, useRef } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import { ArrowRight, TrendingUp, Shield, BarChart3, Globe, Building2, Banknote, PiggyBank, Landmark, LineChart, Newspaper, ChevronLeft, ChevronRight, Users, Target, Award, Briefcase, Sparkles, ArrowUpRight } from 'lucide-react';
+import RadialOrbitalTimeline from '@/components/ui/radial-orbital-timeline';
+import StackingCards from '@/components/ui/stacking-card';
+import { ArrowRight, TrendingUp, Shield, BarChart3, Globe, Building2, Banknote, PiggyBank, Landmark, LineChart, Newspaper, Users, Target, Award, Briefcase, Sparkles, ArrowUpRight } from 'lucide-react';
 
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 const ABOUT_IMAGE = 'https://images.pexels.com/photos/7433840/pexels-photo-7433840.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940';
@@ -27,223 +29,74 @@ const whyWealthwolffs = [
   { icon: Award, title: 'Proven Track Record', desc: 'Consistent outperformance since 2020 across diverse market conditions and economic cycles.' },
 ];
 
-// ── CITY MAP VISUALIZATION ────────────────────────────────────────────────────
-const CITIES = [
-  { name:'NEW YORK',  index:'S&P 500',  baseVal:5234,  px:0.10, py:0.10, type:'gold' },
-  { name:'LONDON',    index:'FTSE 100', baseVal:7842,  px:0.38, py:0.06, type:'gold' },
-  { name:'TOKYO',     index:'NIKKEI',   baseVal:38750, px:0.72, py:0.08, type:'gold' },
-  { name:'DUBAI',     index:'DFM',      baseVal:4127,  px:0.60, py:0.22, type:'gold' },
-  { name:'MUMBAI',    index:'NIFTY 50', baseVal:22480, px:0.75, py:0.35, type:'gold' },
-  { name:'NEW DELHI', index:'SENSEX',   baseVal:73950, px:0.82, py:0.24, type:'blue' },
-  { name:'SINGAPORE', index:'STI',      baseVal:3312,  px:0.88, py:0.50, type:'gold' },
-  { name:'HONG KONG', index:'HSI',      baseVal:17840, px:0.82, py:0.40, type:'gold' },
+const marketData = [
+  {
+    id: 1,
+    title: 'S&P 500',
+    date: 'New York',
+    content: 'US large-cap equities benchmark. Up 1.2% on strong earnings and Fed policy signals.',
+    category: 'Americas',
+    icon: TrendingUp,
+    relatedIds: [2, 5],
+    status: 'completed',
+    energy: 85,
+  },
+  {
+    id: 2,
+    title: 'FTSE 100',
+    date: 'London',
+    content: 'UK blue-chip index. Modest gains driven by energy sector recovery.',
+    category: 'Europe',
+    icon: Building2,
+    relatedIds: [1, 4],
+    status: 'completed',
+    energy: 62,
+  },
+  {
+    id: 3,
+    title: 'NIKKEI 225',
+    date: 'Tokyo',
+    content: "Japan's premier equity index. Rising on BoJ clarity and tech export gains.",
+    category: 'Asia Pacific',
+    icon: LineChart,
+    relatedIds: [1, 6],
+    status: 'completed',
+    energy: 80,
+  },
+  {
+    id: 4,
+    title: 'DFM Index',
+    date: 'Dubai',
+    content: 'Dubai Financial Market. Steady performance anchored by real estate and banking.',
+    category: 'MENA',
+    icon: Globe,
+    relatedIds: [2, 5],
+    status: 'in-progress',
+    energy: 55,
+  },
+  {
+    id: 5,
+    title: 'NIFTY 50',
+    date: 'Mumbai',
+    content: "India's flagship benchmark. Leading Asian markets on robust domestic consumption.",
+    category: 'South Asia',
+    icon: BarChart3,
+    relatedIds: [4, 1],
+    status: 'completed',
+    energy: 90,
+  },
+  {
+    id: 6,
+    title: 'STI',
+    date: 'Singapore',
+    content: 'Straits Times Index. Slight pullback on regional risk-off sentiment.',
+    category: 'ASEAN',
+    icon: Landmark,
+    relatedIds: [3, 5],
+    status: 'pending',
+    energy: 38,
+  },
 ];
-
-const CONNECTIONS = [
-  [0,1],[1,3],[1,2],[3,4],[4,5],[5,3],[4,7],[7,6],[5,7],[0,3],[2,5],[6,4]
-];
-
-function GlobalMap() {
-  const canvasRef = useRef(null);
-
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    const ctx = canvas.getContext('2d');
-
-    let W, H;
-    const streams = CONNECTIONS.map(pair => ({
-      pair, p: Math.random(), speed: 0.0025 + Math.random() * 0.002
-    }));
-    let liveVals = CITIES.map(c => c.baseVal);
-    let wwSize = 10;
-    const WW_SPEED = 0.10;
-    let t = 0;
-    let raf;
-
-    function resize() {
-      W = canvas.offsetWidth;
-      H = canvas.offsetHeight;
-      canvas.width = W * devicePixelRatio;
-      canvas.height = H * devicePixelRatio;
-      ctx.scale(devicePixelRatio, devicePixelRatio);
-    }
-    resize();
-    window.addEventListener('resize', resize);
-
-    function pos(city) {
-      const MAP_H = H * 0.56;
-      return { x: city.px * W, y: city.py * MAP_H };
-    }
-
-    function drawWW() {
-      ctx.save();
-      ctx.font = `800 ${wwSize}px Sora,sans-serif`;
-      ctx.textAlign = 'center';
-      ctx.textBaseline = 'middle';
-      const tw = ctx.measureText('WEALTHWOLFFS').width;
-      if (tw >= W * 0.98) { wwSize = 10; } else { wwSize += WW_SPEED; }
-      const alpha = Math.max(0.008, 0.07 - (tw / W) * 0.063);
-      ctx.globalAlpha = alpha;
-      ctx.fillStyle = '#003B5C';
-      ctx.fillText('WEALTHWOLFFS', W / 2, H * 0.27);
-      ctx.restore();
-    }
-
-    function draw() {
-      t += 0.012;
-
-      if (Math.floor(t * 10) % 4 === 0)
-        liveVals = liveVals.map(v => v * (1 + (Math.random() - 0.498) * 0.001));
-
-      const MAP_H = H * 0.56;
-      const LIST_TOP = H * 0.585;
-
-      // Background
-      const bg = ctx.createLinearGradient(0, 0, 0, H);
-      bg.addColorStop(0, '#FAF8F4');
-      bg.addColorStop(1, '#F0EBE0');
-      ctx.fillStyle = bg;
-      ctx.fillRect(0, 0, W, H);
-
-      // Dot grid
-      ctx.fillStyle = 'rgba(0,59,92,0.03)';
-      for (let gx = 0; gx < W; gx += 18)
-        for (let gy = 0; gy < MAP_H; gy += 18) {
-          ctx.beginPath(); ctx.arc(gx, gy, 0.5, 0, Math.PI * 2); ctx.fill();
-        }
-
-      drawWW();
-
-      // Connections
-      CONNECTIONS.forEach((pair, pi) => {
-        const p1 = pos(CITIES[pair[0]]);
-        const p2 = pos(CITIES[pair[1]]);
-        const dist = Math.hypot(p2.x - p1.x, p2.y - p1.y);
-        const mx = (p1.x + p2.x) / 2;
-        const my = (p1.y + p2.y) / 2 - dist * 0.25;
-
-        ctx.beginPath();
-        ctx.moveTo(p1.x, p1.y);
-        ctx.quadraticCurveTo(mx, my, p2.x, p2.y);
-        ctx.strokeStyle = 'rgba(196,164,124,0.22)';
-        ctx.lineWidth = 0.8;
-        ctx.stroke();
-
-        const s = streams[pi]; s.p += s.speed; if (s.p > 1) s.p = 0;
-        const tp = s.p;
-
-        for (let tr = 0; tr < 7; tr++) {
-          const ttp = Math.max(0, tp - 0.05 * (tr / 7));
-          const bx = (1-ttp)**2*p1.x + 2*(1-ttp)*ttp*mx + ttp**2*p2.x;
-          const by = (1-ttp)**2*p1.y + 2*(1-ttp)*ttp*my + ttp**2*p2.y;
-          ctx.beginPath(); ctx.arc(bx, by, 1.4*(1-tr/7), 0, Math.PI*2);
-          ctx.fillStyle = `rgba(196,164,124,${0.55*(1-tr/7)})`; ctx.fill();
-        }
-        const bx = (1-tp)**2*p1.x + 2*(1-tp)*tp*mx + tp**2*p2.x;
-        const by = (1-tp)**2*p1.y + 2*(1-tp)*tp*my + tp**2*p2.y;
-        ctx.beginPath(); ctx.arc(bx, by, 2.5, 0, Math.PI*2);
-        ctx.fillStyle = '#C4A47C';
-        ctx.shadowColor = '#C4A47C'; ctx.shadowBlur = 8; ctx.fill(); ctx.shadowBlur = 0;
-      });
-
-      // City nodes
-      CITIES.forEach((city, i) => {
-        const { x, y } = pos(city);
-        const pulse = (Math.sin(t * 2 + i * 1.2) + 1) / 2;
-        const nc = city.type === 'blue' ? '#003B5C' : '#C4A47C';
-        const ng = city.type === 'blue' ? '#004F80' : '#B8923A';
-        const r = 5;
-
-        ctx.beginPath(); ctx.arc(x, y, r+4+pulse*3, 0, Math.PI*2);
-        ctx.strokeStyle = `${nc}18`; ctx.lineWidth = 1; ctx.stroke();
-
-        ctx.beginPath(); ctx.arc(x, y, r, 0, Math.PI*2);
-        ctx.fillStyle = nc; ctx.shadowColor = ng;
-        ctx.shadowBlur = 10 + pulse * 6; ctx.fill(); ctx.shadowBlur = 0;
-
-        ctx.beginPath(); ctx.arc(x, y, r*0.38, 0, Math.PI*2);
-        ctx.fillStyle = 'rgba(255,255,255,0.88)'; ctx.fill();
-
-        const nearRight = x > W * 0.62;
-        const nearTop   = y < MAP_H * 0.14;
-        const align = nearRight ? 'right' : 'left';
-        const lx    = nearRight ? x - r - 5 : x + r + 5;
-        const nameY = nearTop   ? y + r + 9  : y - r - 7;
-        const idxY  = nearTop   ? y + r + 18 : y - r - 17;
-
-        ctx.font = '600 7.5px IBM Plex Mono,monospace';
-        ctx.textAlign = align;
-        ctx.fillStyle = 'rgba(0,59,92,0.82)';
-        ctx.fillText(city.name, lx, nameY);
-
-        ctx.font = '400 7px IBM Plex Mono,monospace';
-        ctx.fillStyle = 'rgba(196,164,124,0.85)';
-        ctx.fillText(city.index, lx, idxY);
-      });
-
-      // Divider
-      ctx.strokeStyle = 'rgba(196,164,124,0.28)'; ctx.lineWidth = 1;
-      ctx.beginPath(); ctx.moveTo(W*0.04, LIST_TOP-3); ctx.lineTo(W*0.96, LIST_TOP-3); ctx.stroke();
-
-      ctx.font = '500 7px IBM Plex Mono,monospace';
-      ctx.textAlign = 'left';
-      ctx.fillStyle = 'rgba(196,164,124,0.6)';
-      ctx.fillText('LIVE INDICES', W*0.05, LIST_TOP-9);
-
-      // Index list
-      const listH = H - LIST_TOP - H*0.01;
-      const rowH  = listH / CITIES.length;
-
-      CITIES.forEach((city, i) => {
-        const ry  = LIST_TOP + i * rowH + rowH * 0.65;
-        const val = liveVals[i];
-        const chg = ((val - city.baseVal) / city.baseVal * 100).toFixed(2);
-        const isUp = parseFloat(chg) >= 0;
-        const nc   = city.type === 'blue' ? '#003B5C' : '#C4A47C';
-
-        if (i % 2 === 0) {
-          ctx.fillStyle = 'rgba(0,59,92,0.018)';
-          ctx.fillRect(W*0.03, ry - rowH*0.52, W*0.94, rowH*0.92);
-        }
-
-        ctx.beginPath(); ctx.arc(W*0.065, ry-1, 2.8, 0, Math.PI*2);
-        ctx.fillStyle = nc; ctx.fill();
-
-        ctx.font = '600 8px IBM Plex Mono,monospace';
-        ctx.textAlign = 'left'; ctx.fillStyle = 'rgba(0,59,92,0.82)';
-        ctx.fillText(city.name, W*0.11, ry);
-
-        ctx.font = '400 6.5px IBM Plex Mono,monospace';
-        ctx.fillStyle = 'rgba(0,59,92,0.38)';
-        ctx.fillText(city.index, W*0.11, ry + 9);
-
-        ctx.font = '500 8px IBM Plex Mono,monospace';
-        ctx.textAlign = 'right'; ctx.fillStyle = 'rgba(0,59,92,0.65)';
-        ctx.fillText(val.toFixed(0), W*0.78, ry);
-
-        ctx.font = '600 7.5px IBM Plex Mono,monospace';
-        ctx.fillStyle = isUp ? 'rgba(0,140,70,0.9)' : 'rgba(190,40,55,0.9)';
-        ctx.fillText(`${isUp ? '▲' : '▼'}${Math.abs(chg)}%`, W*0.97, ry);
-      });
-
-      raf = requestAnimationFrame(draw);
-    }
-
-    draw();
-    return () => {
-      cancelAnimationFrame(raf);
-      window.removeEventListener('resize', resize);
-    };
-  }, []);
-
-  return (
-    <canvas
-      ref={canvasRef}
-      style={{ width:'100%', height:'100%', display:'block' }}
-    />
-  );
-}
 
 // ── HERO HEADLINE with fade-in only ──────────────────────────────────────────
 function HeroHeadline() {
@@ -251,14 +104,15 @@ function HeroHeadline() {
   useEffect(() => { setTimeout(() => setVisible(true), 200); }, []);
   return (
     <h1
-      className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-[#0A192F] leading-[1.1] mb-4 sm:mb-5"
-      style={{ fontFamily:'Sora,sans-serif', opacity: visible ? 1 : 0, transition:'opacity 0.8s ease' }}
+      className="text-4xl sm:text-5xl md:text-6xl lg:text-[4.5rem] font-extrabold tracking-tight leading-[1.05] mb-4 sm:mb-5"
+      style={{ fontFamily:"'Cabinet Grotesk','IBM Plex Sans',sans-serif", opacity: visible ? 1 : 0, transition:'opacity 0.9s ease' }}
       data-testid="landing-headline"
     >
-      Building Generational<br />
-      <span className="text-[#003B5C]">Wealth</span> Through<br />
-      <span style={{ color:'#C4A47C', fontStyle:'italic' }}>Financial</span>{' '}
-      <span style={{ color:'#003B5C' }}>Science</span>
+      <span className="text-[#0A192F]">Building Generational</span><br />
+      <span className="financial-magic">Wealth</span>{' '}
+      <span className="text-[#0A192F]">Through</span><br />
+      <em style={{ fontFamily:"'Playfair Display',serif", color:'#C4A47C', fontStyle:'italic' }}>Financial</em>{' '}
+      <span style={{ color:'#003B5C', borderBottom:'3px solid #C4A47C', paddingBottom:'2px' }}>Science</span>
     </h1>
   );
 }
@@ -309,36 +163,6 @@ function AnimatedCounter({ target, suffix = '' }) {
   return <span ref={ref}>{count}{suffix}</span>;
 }
 
-function SolutionsCarousel() {
-  const scrollRef = useRef(null);
-  const scroll = (dir) => {
-    if (scrollRef.current) scrollRef.current.scrollBy({ left: dir * 320, behavior: 'smooth' });
-  };
-  return (
-    <div className="relative">
-      <div className="absolute -top-16 right-0 flex gap-2">
-        <button onClick={() => scroll(-1)} className="w-10 h-10 border border-[#E2E8F0] flex items-center justify-center hover:bg-[#F9F8F6] transition-colors" data-testid="solutions-scroll-left">
-          <ChevronLeft className="w-5 h-5 text-[#003B5C]" />
-        </button>
-        <button onClick={() => scroll(1)} className="w-10 h-10 border border-[#E2E8F0] flex items-center justify-center hover:bg-[#F9F8F6] transition-colors" data-testid="solutions-scroll-right">
-          <ChevronRight className="w-5 h-5 text-[#003B5C]" />
-        </button>
-      </div>
-      <div ref={scrollRef} className="flex gap-5 overflow-x-auto solutions-scroll pb-4 -mx-2 px-2" data-testid="solutions-carousel">
-        {solutions.map((s, i) => (
-          <div key={i} className="flex-none w-[280px] bg-white border border-[#E2E8F0] card-lift relative overflow-hidden" data-testid={`solution-card-${i}`}>
-            <span className="absolute top-2 right-3 text-5xl font-extrabold text-[#003B5C]/[0.04]" style={{ fontFamily:'Sora,sans-serif' }}>{s.num}</span>
-            <div className="p-6 relative z-10">
-              <div className="icon-circle mb-4"><s.icon className="w-6 h-6 text-[#003B5C]" /></div>
-              <h3 className="text-base font-medium text-[#0A192F] mb-2">{s.title}</h3>
-              <p className="text-sm text-[#475569] leading-relaxed">{s.desc}</p>
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
 
 function TestimonialsSection() {
   const [testimonials, setTestimonials] = useState([]);
@@ -357,7 +181,7 @@ function TestimonialsSection() {
               <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#003B5C] to-[#C4A47C] flex items-center justify-center text-white text-sm font-semibold">{t.name?.charAt(0)}</div>
               <div>
                 <p className="text-sm font-medium text-[#0A192F]">{t.name}</p>
-                <p className="text-xs text-[#C4A47C]">{t.designation}</p>
+                <p className="text-xs text-[#7A5C35]">{t.designation}</p>
               </div>
             </div>
           </div>
@@ -383,7 +207,7 @@ function MediaSection() {
               <div className="w-6 h-6 rounded-full bg-[#C4A47C]/10 flex items-center justify-center">
                 <Newspaper className="w-3 h-3 text-[#C4A47C]" />
               </div>
-              <span className="text-xs text-[#C4A47C] font-medium">{a.source || 'Wealthwolffs'}</span>
+              <span className="text-xs text-[#7A5C35] font-medium">{a.source || 'Wealthwolffs'}</span>
             </div>
             <h3 className="text-base font-medium text-[#0A192F] mb-2 group-hover:text-[#003B5C] transition-colors">{a.title}</h3>
             <p className="text-sm text-[#475569] leading-relaxed mb-3">{a.summary}</p>
@@ -433,7 +257,7 @@ function ContactForm() {
           <textarea required rows={4} value={form.message} onChange={e=>setForm({...form,message:e.target.value})} className="w-full px-4 py-3 border border-[#E2E8F0] bg-white text-sm text-[#0A192F] focus:ring-2 focus:ring-[#C4A47C] focus:outline-none transition-all resize-none" placeholder="How can we help you?" data-testid="contact-message" />
         </div>
       </div>
-      {submitted && <p className="mt-4 text-sm text-green-600" data-testid="contact-success">Thank you! We'll get back to you shortly.</p>}
+      {submitted && <p className="mt-4 text-sm text-green-600" data-testid="contact-success" aria-live="polite" role="status">Thank you! We'll get back to you shortly.</p>}
       <button type="submit" disabled={loading} className="mt-6 btn-primary text-xs tracking-[0.1em] uppercase px-8 py-3 disabled:opacity-50 inline-flex items-center gap-2" data-testid="contact-submit">
         {loading ? 'Sending...' : <><Sparkles className="w-4 h-4" /> Send Enquiry</>}
       </button>
@@ -452,9 +276,9 @@ export default function MainSite() {
           <div className="geo-circle w-64 h-64 -top-20 -right-20 opacity-50 hidden sm:block"></div>
           <div className="geo-circle w-40 h-40 bottom-10 -left-10 opacity-30 hidden sm:block"></div>
 
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 flex flex-col lg:flex-row items-stretch relative z-10">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 flex flex-col lg:flex-row items-stretch min-h-[560px] relative z-10">
 
-            {/* Left text — py padding */}
+            {/* Left text */}
             <div className="flex-1 w-full py-10 sm:py-14 md:py-20 pr-0 lg:pr-10">
               <p className="overline text-xs sm:text-sm mb-3">Welcome to Wealthwolffs</p>
               <HeroHeadline />
@@ -489,14 +313,9 @@ export default function MainSite() {
               </div>
             </div>
 
-            {/* Right — GlobalMap fills full height of hero */}
-            <div className="flex-1 hidden lg:flex relative min-h-[480px]"
-              style={{ borderLeft:'1px solid rgba(196,164,124,0.2)' }}>
-              <div style={{ position:'absolute', inset:0 }}>
-                <GlobalMap />
-              </div>
-              {/* Accent corner frame */}
-              <div className="absolute -bottom-4 -right-4 w-full h-full border border-[#C4A47C]/15 pointer-events-none -z-0"></div>
+            {/* Right — Market Indices Orbital */}
+            <div className="flex-1 hidden lg:block">
+              <RadialOrbitalTimeline timelineData={marketData} />
             </div>
 
           </div>
@@ -526,13 +345,9 @@ export default function MainSite() {
       </Section>
 
       {/* ── SOLUTIONS ── */}
-      <Section id="solutions" className="py-14 md:py-20 bg-[#F9F8F6] relative overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
-          <p className="overline text-sm mb-3">Our Solutions</p>
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-medium tracking-tight text-[#0A192F] mb-10">Solutions & Services</h2>
-          <SolutionsCarousel />
-        </div>
-      </Section>
+      <section id="solutions" data-testid="section-solutions">
+        <StackingCards solutions={solutions} />
+      </section>
 
       {/* ── PARTNERS ── */}
       <section className="py-8 sm:py-12 border-y border-[#E2E8F0] overflow-hidden" data-testid="partners-strip">
@@ -629,7 +444,7 @@ export default function MainSite() {
                 <div className="absolute inset-0 flex items-center justify-center"><div className="w-44 h-44 rounded-full border border-[#003B5C]/10"></div></div>
                 <img src="/logo-white.png" alt="Wealthwolffs" className="w-36 h-36 object-contain mx-auto mb-6 relative z-10" />
                 <p className="text-sm font-medium text-[#0A192F] relative z-10">Wealthwolffs Global Hedged Solutions</p>
-                <p className="text-xs text-[#C4A47C] mt-2 relative z-10">Building Wealth. Protecting Futures.</p>
+                <p className="text-xs text-[#7A5C35] mt-2 relative z-10">Building Wealth. Protecting Futures.</p>
               </div>
             </div>
           </div>

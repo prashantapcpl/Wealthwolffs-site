@@ -20,7 +20,7 @@ export default function AcademyPage() {
           </p>
           <div className="flex items-center justify-center gap-3">
             <div className="w-12 h-px bg-[#C4A47C]"></div>
-            <span className="text-xs tracking-[0.2em] text-[#C4A47C] font-medium uppercase">Launching 2026</span>
+            <span className="text-xs tracking-[0.2em] text-[#7A5C35] font-medium uppercase">Launching 2026</span>
             <div className="w-12 h-px bg-[#C4A47C]"></div>
           </div>
         </div>

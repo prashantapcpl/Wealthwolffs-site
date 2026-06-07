@@ -1,3 +1,7 @@
+/* Hide scrollbar on horizontal auto-scroll strips */
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+.no-scrollbar::-webkit-scrollbar { display: none; }
+
 /* Landing page styles */
 .landing-hero {
   min-height: 100vh;
@@ -210,7 +214,7 @@
   font-size: 0.875rem;
   letter-spacing: 0.18em;
   font-weight: 600;
-  color: #C4A47C;
+  color: #7A5C35;
 }
 
 /* Footer */
